@@ -5,7 +5,12 @@ Python Image Library (install via "pip install Pillow")
 import time
 import os
 import ctypes as ct
+import shutil
 from PIL import Image
+from random import shuffle
+
+from photo_init import get_images
+
 
 #Initialize ctypes functionality
 user32 = ct.windll.user32
@@ -37,7 +42,7 @@ class Monitor:
     def height(self):
         return abs(self.bottom - self.top)
 
-class Wallpaper(Monitor):
+class TotalScreen(Monitor):
     def __init__(self, monitor = [0,0,0,0]):
         super().__init__(monitor)
     def update(self, new_monitor):
@@ -76,20 +81,39 @@ def update_background(photo_path):
     #Code 20 for setting desktop background SPI_SETDESKWALLPAPER
     user32.SystemParametersInfoW(20, 0, photo_path, 1)
 
-def get_wallpaper(test):
-    image_list = []
-    return
-
 def main():
-    #Get monitor list with screen size, initialize required wallpaper size
+    # Get images
+    h_imgs, v_imgs = get_images(PATH)
+    h_index = 0
+    v_index = 0
+    # Get monitor list with screen size
     monitor_list = enum_display_monitors()
-    screen = Wallpaper()
+    screen = TotalScreen()
     for monitor in monitor_list:
-        screen.update(monitor)             
-    print(screen.left, screen.top, screen.right, screen.bottom, screen.width(), screen.height())
-    for i in monitor_list:
-        print(i.left, i.right, i.top, i.bottom, i.horizontal)
-    print(get_curr_screen_geometry())    
+        screen.update(monitor)
+    # print(screen.left, screen.top, screen.right, screen.bottom, screen.width(), screen.height())
+    # for i in monitor_list:
+    #     print(i.left, i.right, i.top, i.bottom, i.horizontal)
+    # print(get_curr_screen_geometry())
+    # print((screen.width(), screen.height()))
+    
+
+    # Default 
+    wallpaper = Image.new("RGB", (screen.width(), screen.height()), (92, 233, 92))
+    for monitor in monitor_list:
+        if monitor.horizontal:
+            wallpaper.paste(h_imgs[h_index], )
+            h_index = (h_index + 1)%len(h_imgs)
+        else:
+            wallpaper.paste(v_imgs[v_index])
+            v_index = (v_index + 1)%len(v_imgs)
+
+    wallpaper.save("wallpaper.jpg")
+    
+    
+    
+
+    
 
 if __name__ == "__main__":
     main()

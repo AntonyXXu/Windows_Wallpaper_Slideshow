@@ -1,2 +1,3 @@
 # Windows_Background
- Change screen background for different orientation screens
+
+Python program to cycle through various photos for multiple monitors
