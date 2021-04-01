@@ -1,8 +1,7 @@
 #########################################################
 #   Module to move photos into horizontal and vertical
-#   folders from the photos folder
-#   Returns an array of horizontal or vertical images
-#
+#   folders from the photos folder, and resize
+#   
 #   Initially I had thought to check the sizes
 #   whenever the script is run, but sorting it by size 
 #   is much more efficient. 
@@ -29,7 +28,7 @@ def get_images(path):
         os.mkdir(img_dir+"\\vertical")
     except OSError as error:
         print(error)
-
+    
     #move photos to their appropriate directories
     for photo in files:
         image = Image.open(img_dir + "\\"+ photo)
@@ -47,4 +46,12 @@ def get_images(path):
     vert_imgs = os.listdir(vert_path)
     return [filter_jpg(hori_imgs), filter_jpg(vert_imgs)]
 
-
+def resize_img(image, monitor, path):
+    if monitor.horizontal:
+        img_path = path + "\\photos\\horizontal\\" + image
+    else:
+        img_path = path + "\\photos\\vertical\\" + image
+    resized_img = Image.open(img_path)
+    print(monitor.width(), monitor.height())
+    resized_img = resized_img.resize((monitor.width(), monitor.height()))
+    return resized_img
