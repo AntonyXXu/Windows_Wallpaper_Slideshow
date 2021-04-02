@@ -14,3 +14,9 @@ Considerations:
 - Stacks were considered for the list of photos to pop into the wallpaper, but may be inefficient when all photos are cycled through and it would have to be repopulated. Arrays were ultimately selected for ease of use, with an index to move through each photo, where photos are resized as they get inserted into the background image (resizing all the photos for the monitors isn't space efficient)
 - I initially wanted to put all of the images in the photos folder, but realized the images had to be processed each time to check if they are horizontal or vertical on initialization. Instead, it would be faster to sort them on start into separate folders and avoid some repeated work
 - Coordinates are based on the main monitor location, so it caused some issues for creating the wallpaper. 
+
+Horizontal Screens: \
+![horizontal_demo](https://user-images.githubusercontent.com/77988513/113371636-124bdf00-9324-11eb-9722-eb181d7e40d1.gif)
+
+Vertical Screens: \
+![vertical_demo](https://user-images.githubusercontent.com/77988513/113371657-22fc5500-9324-11eb-9020-838820b7de7d.gif)
