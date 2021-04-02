@@ -16,8 +16,7 @@ Considerations:
 - Coordinates are based on the main monitor location, so it caused some issues for creating the wallpaper. 
 
 Horizontal Screens: \
-<img src="/images/output/video1.gif" width="250" height="250"/>
 ![horizontal_demo](https://user-images.githubusercontent.com/77988513/113371636-124bdf00-9324-11eb-9722-eb181d7e40d1.gif)
 
 Vertical Screens: \
-![vertical_demo](https://user-images.githubusercontent.com/77988513/113371657-22fc5500-9324-11eb-9020-838820b7de7d.gif = 530x530)
+![vertical_demo](https://user-images.githubusercontent.com/77988513/113371657-22fc5500-9324-11eb-9020-838820b7de7d.gif | width=500 height=500)
