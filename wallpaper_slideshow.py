@@ -23,6 +23,7 @@ class RECT(ct.Structure):
      def get_fields(self):
         return [self.left, self.top, self.right, self.bottom]
 
+# Monitor class
 class Monitor:
     def __init__(self, monitor_data):
         self.left = monitor_data[0]
@@ -35,6 +36,7 @@ class Monitor:
     def height(self):
         return abs(self.bottom - self.top)
 
+# Screen class for sum of multiple monitors
 class TotalScreen(Monitor):
     def __init__(self, monitor = [0,0,0,0]):
         super().__init__(monitor)
