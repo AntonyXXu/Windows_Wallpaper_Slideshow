@@ -1,8 +1,9 @@
-# Windows_Background
+# Windows_Wallpaper_Slideshow
 
 Windows screens do not support background image cycling for multiple monitors, this python program allows for a background slideshow.
 It first detects monitor sizes and total screen size, then creates a new image equal to the total screen size with individual resized images pasted into the new background image
 Slideshow changes on timer, and also checks if screen resolution, monitor number, or photos have changed. Photo changes are tested with os.stat(path).st_mtime to avoid querying the entire folder.
+Note vertical screens in parallel with horizontal screen setups do not work.
 
 Requirements:
 Python Image Library (install via "pip install Pillow")
