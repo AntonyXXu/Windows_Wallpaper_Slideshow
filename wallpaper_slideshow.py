@@ -87,8 +87,8 @@ def check_folder_time(old_time, path):
     else:
         return True
 
-def update_background(photo_path):
-    #Code 20 for setting desktop background SPI_SETDESKWALLPAPER
+def update_wallpaper(photo_path):
+    #Code 20 for setting desktop wallpaper SPI_SETDESKWALLPAPER
     user32.SystemParametersInfoW(20, 0, photo_path, 1)
 
 def main():
@@ -137,7 +137,7 @@ def main():
                 ))
         wallpaper.save("wallpaper.jpg")
 
-        update_background(PATH+"\\wallpaper.jpg")
+        update_wallpaper(PATH+"\\wallpaper.jpg")
 
         time.sleep(TIMER_MIN*60)
 
