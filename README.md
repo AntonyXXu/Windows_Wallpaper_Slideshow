@@ -7,7 +7,7 @@
 
 
 Requirements: \
-Python Image Library (install via "pip install Pillow")
+Python Image Library
 
 
 Considerations: 
